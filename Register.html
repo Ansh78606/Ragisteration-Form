@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register form</title>
+
+    <link rel="Stylesheet" type="text/css" href="style.css">
+    <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>-Registration Form- </h2>
+        <h3>create your account.it's free and only take a minute</h3>
+        <div class="form-container">
+            <form action ="/myaction.php" name="myForm" onsubmit="return validateform()" method="post">
+
+                <div class="input-name" id="Name">
+                    <i class="fa fa-user lock"></i>
+                    <input type="text" placeholder="First Name" class="Name" required>
+
+                    <span>
+                        <i class="fa fa-user lock"></i>
+                        <input type="text" placeholder="Last Name" class="Name" required>
+
+                </div>
+                <div class="input-name" id="email">
+                    <i class="fa fa-envelope email"></i>
+                    <input type="Email" placeholder="Email" class="fmail" required><b><span class="formerror"></span></b>
+                </div>
+
+                <div class="input-name" id="pass">
+                    <i class="fa fa-lock lock"></i>
+                    <input type="password" placeholder="Password" class="fpass" required><b><span class="formerror"></span></b>
+
+                </div>
+
+                <div class="input-name" id="cpass">
+                    <i class="fa fa-lock lock"></i>
+                    <input type="password" placeholder="confirm Password" class="fcpass" required><b><span class="formerror"></span></b>
+
+
+                </div>
+                <div class="input-name">
+                    <input type="checkbox" id="cb" class="check-button">
+                    <label  for="cb" class="check"> accept the term of use & privacy policy</label>
+                </div>
+                <div class="input-name">
+                    <input type="submit" class="button" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+<script>
+      function clearErrors(){
+        error = document.getElementsByClassName('formerror');
+        for(let item of eror)
+        {
+            item.innerHTML="";
+        }
+      }
+
+    function seterror(id,error){
+
+
+    }
+    function validateform(){
+        var returnval = true;
+        var password=document.forms['myForm']["fpass"].value;
+        if (password.length <6){
+            seterror("pass","*password should be more than 6 characters");
+            returnval =false;
+        }
+        var cpassword=document.forms['myForm']["fcpass"].value;
+        if (cpassword!=password){
+            seterror("cpass","*password and confirm password should match!");
+            returnval =false;
+        }
+       
+       
+        
+
+
+    }
+</script>
+</html>
